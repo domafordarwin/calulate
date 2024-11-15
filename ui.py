@@ -31,7 +31,7 @@ class View(QWidget):
         self.le2.selectAll()
 
         self.cb = QComboBox(self) # 콤보 박스 위젯 추가
-        self.cb.addItems(['+', '-', '*', '/']) # 콤보 박스 아이템 추가
+        self.cb.addItems(['+', '-', '*', '/', '^']) # 콤보 박스 아이템 추가
 
         hbox_formular = QHBoxLayout() # 수평 박스 레이아웃 추가
         hbox_formular.addWidget(self.le1)
