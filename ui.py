@@ -57,9 +57,9 @@ class View(QWidget):
         self.resize(256, 256)
         self.show()
 
-    def setDisplay(self):
+    def setDisplay(self, text):
         # QMessageBox.information(self, 'information', 'Button Clicked') # 메시지 박스 생성
-        self.te1.appendPlainText('Button Clicked')  # 텍스트 박스에 'Button Clicked' 추가
+        self.te1.appendPlainText(text)  # 텍스트 박스에 'Button Clicked' 추가
 
     def clearMessage(self):
         self.te1.clear()
