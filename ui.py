@@ -20,13 +20,15 @@ class View(QWidget):
 
         # 삭제하기 버튼 추가하기
         self.btn2 = QPushButton('Clear', self) # 버튼 2 추가
-        self.btn1 = QPushButton('Message', self) # 버튼 추가
+        self.btn1 = QPushButton('Calc', self) # 버튼 추가
 
         self.le1 = QLineEdit('0', self) # 라인 에디트 위젯 추가
         self.le1.setAlignment(QtCore.Qt.AlignRight) # 오른쪽 정렬로 설정
 
         self.le2 = QLineEdit('0', self) # 라인 에디트 위젯 추가
         self.le2.setAlignment(QtCore.Qt.AlignRight)
+        self.le2.setFocus(True)
+        self.le2.selectAll()
 
         self.cb = QComboBox(self) # 콤보 박스 위젯 추가
         self.cb.addItems(['+', '-', '*', '/']) # 콤보 박스 아이템 추가
@@ -55,7 +57,7 @@ class View(QWidget):
         self.resize(256, 256)
         self.show()
 
-    def activateMessage(self):
+    def setDisplay(self):
         # QMessageBox.information(self, 'information', 'Button Clicked') # 메시지 박스 생성
         self.te1.appendPlainText('Button Clicked')  # 텍스트 박스에 'Button Clicked' 추가
 
