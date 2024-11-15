@@ -1,7 +1,9 @@
 # ch 5.2.1 ui.py
 
-from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QVBoxLayout, QMessageBox, QPlainTextEdit, QHBoxLayout) # 위젯, 버튼, 수직 박스 레이아웃, 메시지 박스, 텍스트 박스 위젯 추가
+from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QVBoxLayout, QMessageBox, QPlainTextEdit, \
+    QHBoxLayout, QLineEdit, QComboBox) 
 from PyQt5.QtGui import QIcon # 아이콘을 추가하기 위한 모듈
+from PyQt5 import QtCore
 
 
 class View(QWidget):
@@ -20,6 +22,20 @@ class View(QWidget):
         self.btn2 = QPushButton('Clear', self) # 버튼 2 추가
         self.btn1 = QPushButton('Message', self) # 버튼 추가
 
+        self.le1 = QLineEdit('0', self) # 라인 에디트 위젯 추가
+        self.le1.setAlignment(QtCore.Qt.AlignRight) # 오른쪽 정렬로 설정
+
+        self.le2 = QLineEdit('0', self) # 라인 에디트 위젯 추가
+        self.le2.setAlignment(QtCore.Qt.AlignRight)
+
+        self.cb = QComboBox(self) # 콤보 박스 위젯 추가
+        self.cb.addItems(['+', '-', '*', '/']) # 콤보 박스 아이템 추가
+
+        hbox_formular = QHBoxLayout() # 수평 박스 레이아웃 추가
+        hbox_formular.addWidget(self.le1)
+        hbox_formular.addWidget(self.cb)
+        hbox_formular.addWidget(self.le2)
+
 
         hbox = QHBoxLayout() # 수평 박스 레이아웃 추가
         hbox.addStretch(1) # 빈 공간 추가
@@ -28,6 +44,7 @@ class View(QWidget):
 
         vbox = QVBoxLayout() # 수직 박스 위젯 레이아이
         vbox.addWidget(self.te1)  # 새롭게 추가된 텍스트 박스 위젯 
+        vbox.addLayout(hbox_formular)
         vbox.addLayout(hbox)
         vbox.addStretch(1)   # 빈 공간 추간
 
