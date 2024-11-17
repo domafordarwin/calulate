@@ -19,9 +19,14 @@ class Control:
 
         return result
 
-    def sum(sefl, a, b):
+    def sum(self, a, b):
         return a + b
+    
+    def sub(self, a, b):
+        return a - b
        
+
+
 
     def connectSignals(self):
         self.view.btn2.clicked.connect(self.view.clearMessage) # 버튼 클릭 시 clearMessage 메소드 호출
